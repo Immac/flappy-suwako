@@ -1,0 +1,227 @@
+[gd_scene load_steps=26 format=3 uid="uid://cvyh0hyvvtk47"]
+
+[ext_resource type="Script" path="res://scenes/player-character/suwako.gd" id="1_0tx8j"]
+[ext_resource type="Texture2D" uid="uid://dusywa71md3d3" path="res://graphics/flight/flight-4.png" id="1_j38op"]
+[ext_resource type="Texture2D" uid="uid://c7xcj6lfg7sto" path="res://graphics/flight/flight-2.png" id="2_x6ogv"]
+[ext_resource type="Texture2D" uid="uid://633ljyodk73d" path="res://graphics/flight/flight-3.png" id="3_jjlng"]
+[ext_resource type="Texture2D" uid="uid://ccmlv4ngbvcfb" path="res://graphics/flight/flight-1.png" id="4_f25x0"]
+[ext_resource type="Texture2D" uid="uid://bj2uhx675axka" path="res://graphics/flight/flight-5.png" id="5_syur5"]
+[ext_resource type="Texture2D" uid="uid://c2ay6a7poo1u6" path="res://graphics/flight/flight-6.png" id="6_chglo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l1jah"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("6_chglo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_syur5")
+}],
+"loop": false,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("1_j38op")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_x6ogv")
+}, {
+"duration": 4.0,
+"texture": ExtResource("3_jjlng")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_f25x0")
+}],
+"loop": true,
+"name": &"flap",
+"speed": 60.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8fk3k"]
+radius = 16.0
+height = 46.0
+
+[sub_resource type="Animation" id="Animation_unpov"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animation:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"flap"]
+}
+
+[sub_resource type="Animation" id="Animation_c08ks"]
+resource_name = "fall"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animation:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"fall"]
+}
+
+[sub_resource type="Animation" id="Animation_83q0u"]
+resource_name = "flap"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animation:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"flap"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8mxu8"]
+_data = {
+"RESET": SubResource("Animation_unpov"),
+"fall": SubResource("Animation_c08ks"),
+"flap": SubResource("Animation_83q0u")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mr5ho"]
+animation = &"fall"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_i7jm7"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_yfi6h"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_mr5ho")
+nodes/Animation/position = Vector2(240, 80)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_i7jm7")
+nodes/TimeScale/position = Vector2(440, 80)
+nodes/output/position = Vector2(620, 100)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_evdnx"]
+animation = &"flap"
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_micou"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_4nb5w"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_evdnx")
+nodes/Animation/position = Vector2(340, 60)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_micou")
+nodes/TimeScale/position = Vector2(540, 80)
+nodes/output/position = Vector2(740, 80)
+node_connections = [&"output", 0, &"TimeScale", &"TimeScale", 0, &"Animation"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2wry1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ystxf"]
+advance_mode = 2
+advance_expression = "falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kt0kt"]
+advance_mode = 2
+advance_expression = "!falling"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_73kvr"]
+states/Fall/node = SubResource("AnimationNodeBlendTree_yfi6h")
+states/Fall/position = Vector2(467, 177)
+states/Flap/node = SubResource("AnimationNodeBlendTree_4nb5w")
+states/Flap/position = Vector2(467, 83)
+states/Start/position = Vector2(219, 110)
+transitions = ["Start", "Fall", SubResource("AnimationNodeStateMachineTransition_2wry1"), "Fall", "Flap", SubResource("AnimationNodeStateMachineTransition_ystxf"), "Flap", "Fall", SubResource("AnimationNodeStateMachineTransition_kt0kt")]
+graph_offset = Vector2(38, 24)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_t3k2j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87rt8"]
+size = Vector2(357, 41)
+
+[node name="Suwako" type="CharacterBody2D"]
+script = ExtResource("1_0tx8j")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l1jah")
+animation = &"flap"
+autoplay = "flap"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_8fk3k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
+
+[node name="Animations" type="Node" parent="."]
+
+[node name="Library" type="AnimationPlayer" parent="Animations"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_8mxu8")
+}
+
+[node name="Tree" type="AnimationTree" parent="Animations"]
+tree_root = SubResource("AnimationNodeStateMachine_73kvr")
+anim_player = NodePath("../Library")
+advance_expression_base_node = NodePath("../..")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_t3k2j")
+parameters/Fall/TimeScale/scale = 4.0
+parameters/Flap/TimeScale/scale = 3.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Animations"]
+top_level = true
+position = Vector2(0, 279)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Animations/StaticBody2D"]
+position = Vector2(0.5, -10.5)
+shape = SubResource("RectangleShape2D_87rt8")
+disabled = true

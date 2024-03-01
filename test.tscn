@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://8fr27doeav7b"]
+
+[ext_resource type="Texture2D" uid="uid://b5bjdjo10ed4m" path="res://graphics/suwako-spritesheet.png" id="1_ftk1n"]
+[ext_resource type="Texture2D" uid="uid://bwm1js8etv5wj" path="res://graphics/sanae-spritesheet.png" id="2_mq6jq"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Suwako" type="Sprite2D" parent="."]
+position = Vector2(491, 223)
+texture = ExtResource("1_ftk1n")
+region_enabled = true
+region_rect = Rect2(126.278, 464.18, 66.94, 85.5864)
+
+[node name="Kanako" type="Sprite2D" parent="."]
+position = Vector2(1026, 173)
+texture = ExtResource("2_mq6jq")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(116.651, 4229.99, 101.398, 106.795)
+
+[node name="Onbashira" type="Sprite2D" parent="."]
+position = Vector2(607, 175)
+texture = ExtResource("2_mq6jq")
+region_enabled = true
+region_rect = Rect2(88.5626, 4999.93, 56.0525, 169.741)
