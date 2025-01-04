@@ -1,25 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://8fr27doeav7b"]
+[gd_scene load_steps=9 format=3 uid="uid://8fr27doeav7b"]
 
-[ext_resource type="Texture2D" uid="uid://b5bjdjo10ed4m" path="res://graphics/suwako-spritesheet.png" id="1_ftk1n"]
-[ext_resource type="Texture2D" uid="uid://bwm1js8etv5wj" path="res://graphics/sanae-spritesheet.png" id="2_mq6jq"]
+[ext_resource type="Texture2D" uid="uid://b5bjdjo10ed4m" path="res://assets/graphics/suwako-spritesheet.png" id="1_ftk1n"]
+[ext_resource type="Texture2D" uid="uid://bwm1js8etv5wj" path="res://assets/graphics/sanae-spritesheet.png" id="2_mq6jq"]
+[ext_resource type="Texture2D" uid="uid://dopn6o5c5wmv3" path="res://sources/export/flight/flight-1.png" id="3_fyr8h"]
+[ext_resource type="Texture2D" uid="uid://53cygcnkqas0" path="res://sources/export/flight/flight-2.png" id="4_t7koh"]
+[ext_resource type="Texture2D" uid="uid://oytgudi8oyfj" path="res://sources/export/flight/flight-3.png" id="5_j3pul"]
+[ext_resource type="Texture2D" uid="uid://bkyaxha21v281" path="res://sources/export/flight/flight-4.png" id="6_mhy5n"]
+[ext_resource type="Texture2D" uid="uid://dr8jppvkgx85r" path="res://sources/export/flight/flight-5.png" id="7_8f08t"]
+[ext_resource type="Texture2D" uid="uid://dsrb1wjex2a0d" path="res://sources/export/flight/flight-6.png" id="8_aswsx"]
 
 [node name="Test" type="Node2D"]
 
 [node name="Suwako" type="Sprite2D" parent="."]
-position = Vector2(491, 223)
+position = Vector2(41, 217.5)
 texture = ExtResource("1_ftk1n")
 region_enabled = true
 region_rect = Rect2(126.278, 464.18, 66.94, 85.5864)
 
 [node name="Kanako" type="Sprite2D" parent="."]
-position = Vector2(1026, 173)
+position = Vector2(576, 167.5)
 texture = ExtResource("2_mq6jq")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(116.651, 4229.99, 101.398, 106.795)
 
 [node name="Onbashira" type="Sprite2D" parent="."]
-position = Vector2(607, 175)
+position = Vector2(279, 66)
 texture = ExtResource("2_mq6jq")
 region_enabled = true
 region_rect = Rect2(88.5626, 4999.93, 56.0525, 169.741)
+
+[node name="Flight-1" type="Sprite2D" parent="."]
+position = Vector2(82, 419)
+texture = ExtResource("3_fyr8h")
+
+[node name="Flight-2" type="Sprite2D" parent="."]
+position = Vector2(154, 416)
+texture = ExtResource("4_t7koh")
+
+[node name="Flight-3" type="Sprite2D" parent="."]
+position = Vector2(232, 413)
+texture = ExtResource("5_j3pul")
+
+[node name="Flight-4" type="Sprite2D" parent="."]
+position = Vector2(294, 417)
+texture = ExtResource("6_mhy5n")
+
+[node name="Flight-5" type="Sprite2D" parent="."]
+position = Vector2(363, 419)
+texture = ExtResource("7_8f08t")
+
+[node name="Flight-6" type="Sprite2D" parent="."]
+position = Vector2(431, 414)
+texture = ExtResource("8_aswsx")

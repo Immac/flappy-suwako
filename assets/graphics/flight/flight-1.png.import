@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwm1js8etv5wj"
-path="res://.godot/imported/sanae-spritesheet.png-ac4cb804825435be63661756d839156b.ctex"
+uid="uid://ccmlv4ngbvcfb"
+path="res://.godot/imported/flight-1.png-ebc9b2839b26b6b2a2ac8548ff0d43b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/sanae-spritesheet.png"
-dest_files=["res://.godot/imported/sanae-spritesheet.png-ac4cb804825435be63661756d839156b.ctex"]
+source_file="res://assets/graphics/flight/flight-1.png"
+dest_files=["res://.godot/imported/flight-1.png-ebc9b2839b26b6b2a2ac8548ff0d43b8.ctex"]
 
 [params]
 

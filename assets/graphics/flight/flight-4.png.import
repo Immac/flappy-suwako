@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dotrnou8uwggo"
-path="res://.godot/imported/bluwsky.webp-d73fcf513dcc2d86ac4cefe47fe862ef.ctex"
+uid="uid://dusywa71md3d3"
+path="res://.godot/imported/flight-4.png-7b3ed9012eb59c02d621e4c5358b26f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/backgrounds/bluwsky.webp"
-dest_files=["res://.godot/imported/bluwsky.webp-d73fcf513dcc2d86ac4cefe47fe862ef.ctex"]
+source_file="res://assets/graphics/flight/flight-4.png"
+dest_files=["res://.godot/imported/flight-4.png-7b3ed9012eb59c02d621e4c5358b26f0.ctex"]
 
 [params]
 

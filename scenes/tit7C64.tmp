@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dveswu4ah83c3"]
 
-[ext_resource type="Texture2D" uid="uid://b5kwqtybhf16d" path="res://assets/graphics/TitleScreen_m005.png" id="1_mc7ay"]
+[ext_resource type="Texture2D" uid="uid://b5kwqtybhf16d" path="res://graphics/TitleScreen_m005.png" id="1_mc7ay"]
 [ext_resource type="Script" path="res://scenes/title-screen.gd" id="1_q0phk"]
 
 [node name="TitleScreen" type="Node2D"]

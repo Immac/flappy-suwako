@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dusywa71md3d3"
-path="res://.godot/imported/flight-4.png-b367833b02c316732aaca3e058a9be57.ctex"
+uid="uid://b5bjdjo10ed4m"
+path="res://.godot/imported/suwako-spritesheet.png-2b2b49f22bf4cb83e5d99baf39e8240d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/flight/flight-4.png"
-dest_files=["res://.godot/imported/flight-4.png-b367833b02c316732aaca3e058a9be57.ctex"]
+source_file="res://assets/graphics/suwako-spritesheet.png"
+dest_files=["res://.godot/imported/suwako-spritesheet.png-2b2b49f22bf4cb83e5d99baf39e8240d.ctex"]
 
 [params]
 

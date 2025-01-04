@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5bjdjo10ed4m"
-path="res://.godot/imported/suwako-spritesheet.png-175f37c5e3d1290ff552933176833584.ctex"
+uid="uid://d0odnvwyjtbkv"
+path="res://.godot/imported/K1zifeh.webp-f46ac6c7652bb9a3f8c8992ef78111a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/suwako-spritesheet.png"
-dest_files=["res://.godot/imported/suwako-spritesheet.png-175f37c5e3d1290ff552933176833584.ctex"]
+source_file="res://assets/graphics/backgrounds/K1zifeh.webp"
+dest_files=["res://.godot/imported/K1zifeh.webp-f46ac6c7652bb9a3f8c8992ef78111a1.ctex"]
 
 [params]
 

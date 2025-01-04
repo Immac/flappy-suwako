@@ -1,13 +1,11 @@
 extends CharacterBody2D
-
-const JUMP_VELOCITY = -400.0
-
+const JUMP_VELOCITY := -400.0
+const MAX_FALL_SPEED := 1200
 @export var auto_flap := true
 var do_jump := false
-
 var falling := false:
-   get:
-      return velocity.y < 0
+	get:
+		return velocity.y < 0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -17,25 +15,26 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var falling_path := "parameters/conditions/falling"
 
 func _ready():
-   state_machine.start("Flap")
+	tree.active = not Engine.is_editor_hint()
+	state_machine.start("Flap")
 
 func _physics_process(delta):
    # Add the gravity.
-   if not is_on_floor():
-      velocity.y += gravity * delta
+	if not is_on_floor():
+		velocity.y += gravity * delta
    # Handle Jump.
-   if do_jump:
-      velocity.y = JUMP_VELOCITY
-      do_jump = false
-   auto_jump()
-   move_and_slide()
+	if do_jump:
+		velocity.y = JUMP_VELOCITY
+		do_jump = false
+	velocity.y = clamp(velocity.y,JUMP_VELOCITY,MAX_FALL_SPEED)
+	auto_jump()
+	move_and_slide()
 
 func _input(event:InputEvent):
-   do_jump = event.is_action_pressed("action-key") || (event is InputEventScreenTouch and event.is_pressed())
-
-
+	var action_pressed = event.is_action_pressed("action-key") 
+	var screen_touched = event is InputEventScreenTouch and event.is_pressed()
+	do_jump = do_jump or action_pressed or screen_touched 
 
 func auto_jump():
-   if auto_flap:
-      do_jump = global_position.y >= get_viewport().get_visible_rect().size.y/2
-
+	if auto_flap:
+		do_jump = global_position.y >= get_viewport().get_visible_rect().size.y/2
