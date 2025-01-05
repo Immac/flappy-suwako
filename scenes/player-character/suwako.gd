@@ -6,6 +6,7 @@ var do_jump := false
 var falling := false:
 	get:
 		return velocity.y < 0
+var controllable = true
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -33,8 +34,10 @@ func _physics_process(delta):
 func _input(event:InputEvent):
 	var action_pressed = event.is_action_pressed("action-key") 
 	var screen_touched = event is InputEventScreenTouch and event.is_pressed()
-	do_jump = do_jump or action_pressed or screen_touched 
+	do_jump = do_jump or action_pressed or screen_touched
 
 func auto_jump():
 	if auto_flap:
 		do_jump = global_position.y >= get_viewport().get_visible_rect().size.y/2
+		var x = get_viewport()
+		pass

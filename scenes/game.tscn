@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsvydcvetryca"]
+[gd_scene load_steps=6 format=3 uid="uid://bsvydcvetryca"]
 
 [ext_resource type="PackedScene" uid="uid://8fr27doeav7b" path="res://test.tscn" id="1_qqboa"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_rwk10"]
 [ext_resource type="Texture2D" uid="uid://dotrnou8uwggo" path="res://assets/graphics/backgrounds/bluwsky.webp" id="2_obqax"]
 [ext_resource type="PackedScene" uid="uid://cvyh0hyvvtk47" path="res://scenes/player-character/suwako.tscn" id="3_txe2n"]
+[ext_resource type="PackedScene" uid="uid://kxahtkpjc0ny" path="res://scenes/onbashira.tscn" id="5_o2v4f"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_rwk10")
@@ -28,5 +29,8 @@ text = "Game Over"
 
 [node name="Suwako" parent="." instance=ExtResource("3_txe2n")]
 position = Vector2(-276, 0)
+
+[node name="Onbashira" parent="." instance=ExtResource("5_o2v4f")]
+position = Vector2(-49, -143)
 
 [connection signal="button_up" from="Button" to="." method="on_game_ended"]

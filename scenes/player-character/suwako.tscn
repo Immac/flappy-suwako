@@ -12,10 +12,10 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_chglo")
+"texture": ExtResource("5_syur5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_syur5")
+"texture": ExtResource("6_chglo")
 }],
 "loop": false,
 "name": &"fall",
@@ -40,8 +40,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8fk3k"]
-radius = 16.0
-height = 46.0
+radius = 9.0
+height = 22.0
 
 [sub_resource type="Animation" id="Animation_unpov"]
 length = 0.001
@@ -185,6 +185,7 @@ graph_offset = Vector2(38, 24)
 script = ExtResource("1_0tx8j")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_l1jah")
 animation = &"flap"
 autoplay = "flap"
