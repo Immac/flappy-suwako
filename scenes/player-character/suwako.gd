@@ -39,5 +39,3 @@ func _input(event:InputEvent):
 func auto_jump():
 	if auto_flap:
 		do_jump = global_position.y >= get_viewport().get_visible_rect().size.y/2
-		var x = get_viewport()
-		pass

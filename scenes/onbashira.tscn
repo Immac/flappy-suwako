@@ -120,8 +120,9 @@ nodes/TimeScale/position = Vector2(-180, 260)
 nodes/output/position = Vector2(360, 120)
 node_connections = [&"Add2", 0, &"TimeScale 2", &"Add2", 1, &"TimeScale", &"TimeScale", 0, &"Animation 2", &"TimeScale 2", 0, &"Animation", &"output", 0, &"Add2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sba4b"]
-radius = 78.3135
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lhjw6"]
+radius = 16.0
+height = 154.0
 
 [node name="Onbashira" type="Node2D"]
 script = ExtResource("1_a3wlj")
@@ -156,8 +157,10 @@ parameters/Add2/add_amount = 1.0
 parameters/TimeScale/scale = 4.07
 "parameters/TimeScale 2/scale" = 3.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="HurtBox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_sba4b")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CapsuleShape2D_lhjw6")
 debug_color = Color(0.832453, 0.347819, 0.474525, 0.42)
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
