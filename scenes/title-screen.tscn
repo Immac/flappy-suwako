@@ -9,26 +9,30 @@ score = -446
 
 [node name="Title" type="Sprite2D" parent="."]
 modulate = Color(0.686275, 0.996078, 0.309804, 1)
-position = Vector2(649, 97)
+position = Vector2(320, 79)
+scale = Vector2(0.733434, 0.846154)
 texture = ExtResource("1_mc7ay")
 
 [node name="PressActionKeyLabel" type="Label" parent="."]
-offset_left = 351.0
-offset_top = 293.0
-offset_right = 921.0
-offset_bottom = 351.0
+offset_left = 28.0
+offset_top = 134.0
+offset_right = 603.0
+offset_bottom = 192.0
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
 text = "Press The Action Key To Begin
 "
 
 [node name="ScoreContainer" type="HBoxContainer" parent="."]
-offset_left = 526.0
-offset_top = 458.0
-offset_right = 566.0
-offset_bottom = 498.0
+offset_left = 155.0
+offset_top = 250.0
+offset_right = 278.0
+offset_bottom = 305.0
 
 [node name="ScoreLabel" type="Label" parent="ScoreContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "Score:"
 

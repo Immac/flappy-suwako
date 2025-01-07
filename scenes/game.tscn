@@ -1,22 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsvydcvetryca"]
+[gd_scene load_steps=9 format=3 uid="uid://bsvydcvetryca"]
 
 [ext_resource type="PackedScene" uid="uid://8fr27doeav7b" path="res://test.tscn" id="1_qqboa"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_rwk10"]
 [ext_resource type="Texture2D" uid="uid://dotrnou8uwggo" path="res://assets/graphics/backgrounds/bluwsky.webp" id="2_obqax"]
 [ext_resource type="PackedScene" uid="uid://cvyh0hyvvtk47" path="res://scenes/player-character/suwako.tscn" id="3_txe2n"]
 [ext_resource type="PackedScene" uid="uid://kxahtkpjc0ny" path="res://scenes/onbashira.tscn" id="5_o2v4f"]
+[ext_resource type="Script" path="res://scenes/onbashira_factory.gd" id="6_bosf4"]
+[ext_resource type="Texture2D" uid="uid://bwm1js8etv5wj" path="res://assets/graphics/sanae-spritesheet.png" id="7_p2j3s"]
+
+[sub_resource type="Curve2D" id="Curve2D_uy8vi"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, -246, 0, 0, 0, 0, -2, 246)
+}
+point_count = 2
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_rwk10")
 
 [node name="K1Zifeh" type="Sprite2D" parent="."]
-position = Vector2(4.00002, -3.63798e-12)
-scale = Vector2(0.556126, 0.556126)
+position = Vector2(2.22224, -0.999992)
+scale = Vector2(0.737778, 0.737778)
 texture = ExtResource("2_obqax")
 
 [node name="Camera" type="Camera2D" parent="."]
 
 [node name="Test" parent="." instance=ExtResource("1_qqboa")]
+visible = false
 modulate = Color(1, 1, 1, 0.509804)
 position = Vector2(-329, -212)
 
@@ -27,11 +36,35 @@ offset_right = 71.0
 offset_bottom = 163.0
 text = "Game Over"
 
-[node name="Suwako" parent="." instance=ExtResource("3_txe2n")]
+[node name="Suwako" parent="." groups=["Player"] instance=ExtResource("3_txe2n")]
 position = Vector2(-276, 0)
 
-[node name="Onbashira" parent="." instance=ExtResource("5_o2v4f")]
+[node name="Onbashira" parent="." groups=["Obstacles"] instance=ExtResource("5_o2v4f")]
 position = Vector2(-49, -143)
+
+[node name="OnbashiraFactory" type="Marker2D" parent="."]
+position = Vector2(445, 0)
+script = ExtResource("6_bosf4")
+
+[node name="Path2D" type="Path2D" parent="OnbashiraFactory"]
+curve = SubResource("Curve2D_uy8vi")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="OnbashiraFactory/Path2D"]
+position = Vector2(-1, -246)
+rotation = 1.57283
+
+[node name="Kanako" type="Sprite2D" parent="OnbashiraFactory/Path2D/PathFollow2D"]
+position = Vector2(0.321145, 158)
+rotation = -1.57079
+texture = ExtResource("7_p2j3s")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(116.651, 4229.99, 101.398, 106.795)
+
+[node name="CreationTimer" type="Timer" parent="OnbashiraFactory"]
+wait_time = 2.0
+autostart = true
 
 [connection signal="button_up" from="Button" to="." method="on_game_ended"]
 [connection signal="body_hit_hurtbox" from="Onbashira" to="." method="_on_onbashira_body_hit_hurtbox"]
+[connection signal="timeout" from="OnbashiraFactory/CreationTimer" to="OnbashiraFactory" method="_on_creation_timer_timeout"]

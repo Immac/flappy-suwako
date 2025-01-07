@@ -2,18 +2,18 @@ extends CharacterBody2D
 const JUMP_VELOCITY := -400.0
 const MAX_FALL_SPEED := 1200
 @export var auto_flap := true
+@export var objects_that_hurt_group_name := "Obstacles"
+@onready var tree := $Animations/Tree as AnimationTree
+@onready var state_machine := tree["parameters/playback"] as AnimationNodeStateMachinePlayback
+
 var do_jump := false
 var falling := false:
 	get:
 		return velocity.y < 0
 var controllable = true
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
-@onready var tree := $Animations/Tree as AnimationTree
-@onready var state_machine := tree["parameters/playback"] as AnimationNodeStateMachinePlayback
-var falling_path := "parameters/conditions/falling"
+signal died(killer: Node2D)
 
 func _ready():
 	tree.active = not Engine.is_editor_hint()
@@ -39,3 +39,7 @@ func _input(event:InputEvent):
 func auto_jump():
 	if auto_flap:
 		do_jump = global_position.y >= get_viewport().get_visible_rect().size.y/2
+
+func _on_hurt_box_body_entered(body: Node2D) -> void:
+	if body.is_in_group(objects_that_hurt_group_name):
+		died.emit(body)

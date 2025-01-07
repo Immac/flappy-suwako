@@ -122,7 +122,7 @@ node_connections = [&"Add2", 0, &"TimeScale 2", &"Add2", 1, &"TimeScale", &"Time
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lhjw6"]
 radius = 16.0
-height = 154.0
+height = 166.0
 
 [node name="Onbashira" type="Node2D"]
 script = ExtResource("1_a3wlj")
@@ -160,6 +160,7 @@ parameters/TimeScale/scale = 4.07
 [node name="HurtBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_lhjw6")
 debug_color = Color(0.832453, 0.347819, 0.474525, 0.42)
 

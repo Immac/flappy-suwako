@@ -191,7 +191,9 @@ animation = &"flap"
 autoplay = "flap"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_8fk3k")
+disabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -213,3 +215,10 @@ advance_expression_base_node = NodePath("../..")
 anim_player = NodePath("../Library")
 parameters/Fall/TimeScale/scale = 4.0
 parameters/Flap/TimeScale/scale = 3.0
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CapsuleShape2D_8fk3k")
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
