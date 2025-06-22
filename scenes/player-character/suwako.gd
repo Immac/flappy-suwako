@@ -2,7 +2,7 @@ extends CharacterBody2D
 const JUMP_VELOCITY := -400.0
 const MAX_FALL_SPEED := 1200
 @export var auto_flap := true
-@export var objects_that_hurt_group_name := "Obstacles"
+@export var objects_that_hurt_group_name := "CanHurtPlayer"
 @onready var tree := $Animations/Tree as AnimationTree
 @onready var state_machine := tree["parameters/playback"] as AnimationNodeStateMachinePlayback
 
@@ -40,6 +40,6 @@ func auto_jump():
 	if auto_flap:
 		do_jump = global_position.y >= get_viewport().get_visible_rect().size.y/2
 
-func _on_hurt_box_body_entered(body: Node2D) -> void:
-	if body.is_in_group(objects_that_hurt_group_name):
-		died.emit(body)
+func _on_hurt_box_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	if area.is_in_group(objects_that_hurt_group_name):
+		died.emit(area)

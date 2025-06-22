@@ -157,9 +157,9 @@ parameters/Add2/add_amount = 1.0
 parameters/TimeScale/scale = 4.07
 "parameters/TimeScale 2/scale" = 3.0
 
-[node name="HurtBox" type="Area2D" parent="."]
+[node name="HurtBox" type="Area2D" parent="." groups=["CanHurtPlayer"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" groups=["CanHurtPlayer"]]
 position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_lhjw6")
 debug_color = Color(0.832453, 0.347819, 0.474525, 0.42)

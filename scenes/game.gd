@@ -9,7 +9,6 @@ func _ready() -> void:
 	
 func on_game_ended() -> void:
 	game_over.emit(0)
-
-func _on_onbashira_body_hit_hurtbox(body: Node2D) -> void:
-	if body == suwako:
-		on_game_ended()
+	
+func _on_suwako_died(killer: Node2D) -> void:
+	on_game_ended()

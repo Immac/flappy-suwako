@@ -221,4 +221,5 @@ parameters/Flap/TimeScale/scale = 3.0
 [node name="Collision" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CapsuleShape2D_8fk3k")
 
+[connection signal="area_shape_entered" from="HurtBox" to="." method="_on_hurt_box_area_shape_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

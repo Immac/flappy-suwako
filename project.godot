@@ -17,7 +17,7 @@ config/icon="res://assets/graphics/suwako-icon.png"
 
 [display]
 
-window/size/viewport_width=640
+window/size/viewport_width=852
 window/size/viewport_height=480
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
@@ -29,6 +29,10 @@ project/assembly_name="Flappy Suwako"
 [editor]
 
 movie_writer/movie_file="D:/repositories/game-development/flappy-suwako/output/flappy_suwako.avi"
+
+[global_group]
+
+CanHurtPlayer="Objects that hurt on the player"
 
 [input]
 

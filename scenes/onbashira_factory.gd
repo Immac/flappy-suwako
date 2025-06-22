@@ -20,7 +20,6 @@ func create_onbashira():
 	new_onbashira.global_position = $Path2D/PathFollow2D.global_position
 	target = randf()
 	$"..".add_child(new_onbashira)
-	new_onbashira.add_to_group("Obstacles")
 	pass 
 
 func _on_creation_timer_timeout() -> void:
